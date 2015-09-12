@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="app">
+      <h2>infinitelives.sfxr</h2>
+      <div>
+        <pre><code>
+; test playing a sound generated from sfxr URL code
+(def a (sfx/to-audio "#12TSMv9WmPWMqHPc1DsCjgCiRhGfmD9FdwFyr4Gd5Nx3SadrCu9pm8BffuTtxwedvbXeritFVSqwakcFLDyZWLjwdmTBGc7hwzirsTZbGbnrXGgfHSs2y8SsTy"))
+
+; code bound to button event:
+(.play a)
+        </pre></code>
+        <button id='play-code'>Play</button>
+        <br/>
+        <pre><code>
+; load a hash-map of json-encoded sounds from resources/sounds/ at compile time
+(def my-sfx (sfx/load-sfx-directory))
+
+; code bound to button event:
+(.play (my-sfx :donk))
+        </pre></code>
+        <button id='play-disk'>Play</button>
+      </div>
+    </div>
+    <script src="js/compiled/infinitelives/sfxr.js" type="text/javascript"></script>
+  </body>
+</html>
